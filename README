@@ -1,0 +1,26 @@
+## foursquare history map ##
+
+View all of the venues you've checked in on a map.
+
+### Usage:
+
+* Run the history grabber:
+
+  $ ruby history.rb
+
+  It will ask for your Foursquare credentials, then grab all your checkins.
+
+  The checkins will be saved in history.json. Feel free to play with your data.
+
+* Start the server:
+
+  $ ruby app.rb
+
+* Open http://localhost:4567 in your browser for a friggin sweet Google map.
+
+### TODO
+
+* Add more information to info markers on map, like times checked in or something.
+* Make it deployable
+
+(c) Copyright 2010 Pat Nakajima. All Rights Reserved.
