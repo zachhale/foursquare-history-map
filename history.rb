@@ -1,16 +1,15 @@
+require File.join(File.dirname(__FILE__), 'lib/helpers')
+
 require 'rubygems'
 require 'open-uri'
-require 'json'
+require_or_prompt 'termios'
+require_or_prompt 'json'
 
 checkins = File.exists?('history.json') ? JSON.parse(File.read('history.json')) : []
 since_id = checkins.last ? checkins.last['id'] : 0
 
-puts "Save Your History"
-
-print "Enter Username: "
-username = $stdin.gets.chomp
-print "Enter Password: "
-password = $stdin.gets.chomp
+username = ask 'enter email: '
+password = ask 'enter password: ', :secret => true
 
 get = proc do
   JSON.parse(open("http://api.foursquare.com/v1/history.json?l=250&sinceid=#{since_id}",
