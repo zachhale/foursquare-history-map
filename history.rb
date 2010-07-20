@@ -19,7 +19,7 @@ end
 
 until (new_checkins = get.call).empty?
   since_id = (checkins += new_checkins).last['id']
-  File.open("#{ENV['HOME']}/Desktop/history.json", 'w+') { |f| f.puts checkins.to_json }
+  File.open(File.join(File.dirname(__FILE__), "history.json"), 'w+') { |f| f.puts checkins.to_json }
   puts "#{checkins.size} checkins saved"
 end
 
